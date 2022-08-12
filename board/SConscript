@@ -1,0 +1,18 @@
+from building import *
+
+cwd  = GetCurrentDir()
+
+CPPPATH = [cwd]
+
+# add general drivers
+src = Split('''
+board.c
+drv_uart.c
+drv_usbh.c
+drv_pin.c
+drv_eth.c
+''')
+
+group = DefineGroup('Drivers', src, depend = [''], CPPPATH = CPPPATH)
+
+Return('group')

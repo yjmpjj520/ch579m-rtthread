@@ -1,0 +1,76 @@
+menu "Hardware Drivers Config"
+
+config MCU_CH579M
+    bool 
+    select ARCH_ARM_CORTEX_M0
+    select RT_USING_COMPONENTS_INIT
+    select RT_USING_USER_MAIN
+    default y
+
+menu "Onboard Peripheral Drivers"
+
+endmenu
+
+menu "On-chip Peripheral Drivers"
+    config BSP_USING_GPIO
+        bool "Enable GPIO"
+        select RT_USING_PIN
+        default y
+
+    menuconfig BSP_USING_UART
+        bool "Enable UART"
+        default y
+        select RT_USING_SERIAL
+        if BSP_USING_UART
+            config BSP_USING_UART0
+                bool "Enable UART0"
+                default n
+
+            config BSP_USING_UART1
+                bool "Enable UART1"
+                default y
+        endif
+
+    menuconfig BSP_USING_I2C1
+        bool "Enable I2C1 BUS (software simulation)"
+        default y
+        select RT_USING_I2C
+        select RT_USING_I2C_BITOPS
+        select RT_USING_PIN 
+        if BSP_USING_I2C1
+            config BSP_I2C1_SCL_PIN
+                int "i2c1 scl pin number"
+                range 1 176
+                default 51
+            config BSP_I2C1_SDA_PIN
+                int "I2C1 sda pin number"
+                range 1 176
+                default 90
+        endif 
+            config BSP_USING_ETH
+                bool "Enable ETH"
+                default n
+                select RT_USING_LWIP
+
+    menuconfig BSP_USING_USBH
+       bool "Enable USB Host"
+       select RT_USING_USB_HOST
+       default n
+       if BSP_USING_USBH
+           menuconfig RT_USBH_MSTORAGE
+                bool "Enable Udisk Drivers"
+                default n
+                if RT_USBH_MSTORAGE
+                    config UDISK_MOUNTPOINT
+                    string "Udisk mount dir"
+                    default "/"
+                endif
+        endif
+
+endmenu
+
+menu "Board extended module Drivers"
+
+endmenu
+
+endmenu

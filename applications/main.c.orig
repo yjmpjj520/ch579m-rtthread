@@ -1,0 +1,40 @@
+
+#include "board.h"
+
+#include <rtthread.h>
+#include <rtdevice.h>
+
+#define RTTHREAD_SIZE      1024
+#define RTTHREAD_PRIORITY  20
+#define RTTHREAD_SCLIENSE  5
+
+static rt_thread_t thread1=RT_NULL;
+
+static void thread_entry(void *param){
+     int i;
+	   rt_pin_mode(39,GPIO_ModeOut_PP_5mA);
+	   while(i!=9){
+		 rt_pin_write(39,PIN_LOW);
+		 rt_thread_mdelay(300);
+			 rt_pin_write(39,PIN_HIGH);
+			 rt_thread_mdelay(300);
+			 i++;
+		 }
+}
+
+void led_sample(void){
+     thread1=rt_thread_create("led_sample",
+	                              thread_entry,RT_NULL,
+	                              RTTHREAD_SIZE,
+	                              RTTHREAD_PRIORITY,RTTHREAD_SCLIENSE);
+	if(thread1!=RT_NULL){
+	rt_thread_startup(thread1);
+	}
+}
+MSH_CMD_EXPORT(led_sample,led_sample);
+
+int main(void)
+{
+    return 0;
+}
+

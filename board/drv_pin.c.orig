@@ -1,0 +1,194 @@
+/*
+ * Copyright (c) 2019 Winner Microelectronics Co., Ltd.
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * Change Logs:
+ * Date           Author       Notes
+ * 2018-09-15     flyingcys    1st version
+ */
+
+#include <rtthread.h>
+#include <rtdevice.h>
+#include <rthw.h>
+#include "CH57x_gpio.h"
+#include "pin_map.h"
+#include "drv_pin.h"
+
+#ifdef BSP_USING_PIN
+
+static void ch_pin_mode(struct rt_device *device, rt_base_t pin, rt_base_t mode)
+{
+    rt_int16_t gpio_pin;
+    gpio_pin = ch_get_pin(pin);
+    if (gpio_pin < 0)
+    {
+        return;
+    }
+    if(gpio_pin<=23) {
+        if (mode == GPIO_ModeIN_Floating)
+        {
+            GPIOA_ModeCfg(gpio_pin, GPIO_ModeIN_Floating);
+        }
+        else if (mode == GPIO_ModeIN_PU)
+        {
+            GPIOA_ModeCfg(gpio_pin, GPIO_ModeIN_PU);
+        }
+        else if (mode == GPIO_ModeIN_PD)
+        {
+            GPIOA_ModeCfg(gpio_pin, GPIO_ModeIN_PD);
+        }
+        else if (mode == GPIO_ModeOut_PP_5mA)
+        {
+            GPIOA_ModeCfg(gpio_pin,GPIO_ModeOut_PP_5mA);
+        }
+        else if (mode == GPIO_ModeOut_PP_20mA)
+        {
+            GPIOA_ModeCfg(gpio_pin,GPIO_ModeOut_PP_20mA);
+        }
+    } else {
+        if (mode == GPIO_ModeIN_Floating)
+        {
+            GPIOB_ModeCfg(gpio_pin, GPIO_ModeIN_Floating);
+        }
+        else if (mode == GPIO_ModeIN_PU)
+        {
+            GPIOB_ModeCfg(gpio_pin, GPIO_ModeIN_PU);
+        }
+        else if (mode == GPIO_ModeIN_PD)
+        {
+            GPIOB_ModeCfg(gpio_pin, GPIO_ModeIN_PD);
+        }
+        else if (mode == GPIO_ModeOut_PP_5mA)
+        {
+            GPIOB_ModeCfg(gpio_pin,GPIO_ModeOut_PP_5mA);
+        }
+        else if (mode == GPIO_ModeOut_PP_20mA)
+        {
+            GPIOB_ModeCfg(gpio_pin,GPIO_ModeOut_PP_20mA);
+        }
+    }
+    return;
+}
+
+static void ch_pin_write(struct rt_device *device, rt_base_t pin, rt_base_t value)
+{
+    rt_int16_t gpio_pin;
+    gpio_pin = ch_get_pin(pin);
+    if (gpio_pin < 0)
+    {
+        return;
+    }
+    if(gpio_pin<=23) {
+        if(value) {
+            GPIOA_SetBits(pin);
+        } else {
+            GPIOA_ResetBits(pin);
+        }
+    } else {
+        if(value) {
+            GPIOB_SetBits(pin);
+        } else {
+            GPIOB_ResetBits(pin)
+        }
+    }
+    return;
+}
+
+static int ch_pin_read(struct rt_device *device, rt_base_t pin)
+{
+    rt_int16_t gpio_pin;
+    gpio_pin = ch_get_pin(pin);
+    if (gpio_pin < 0)
+    {
+        return PIN_LOW;
+    }
+		if(gpio_pin<=23){
+		return GPIOA_ReadPortPin(pin);
+		}else{
+		return GPIOB_ReadPortPin(pin);
+		}
+}
+
+static rt_err_t ch_pin_attach_irq(struct rt_device *device, rt_int32_t pin,
+                                  rt_uint32_t mode, void (*hdr)(void *args), void *args)
+{
+    rt_int16_t gpio_pin;
+    rt_base_t level;
+
+    gpio_pin = ch_get_pin(pin);
+    if (gpio_pin < 0)
+    {
+        return RT_ENOSYS;
+    }
+
+    level = rt_hw_interrupt_disable();
+    //irq mode set
+		if(gpio_pin<=23){
+    switch (mode)
+    {
+    case GPIO_ITMode_LowLevel:
+        GPIOA_ITModeCfg(gpio_pin, GPIO_ITMode_LowLevel);
+        break;
+    case GPIO_ITMode_HighLevel:
+        GPIOA_ITModeCfg(gpio_pin, GPIO_ITMode_HighLevel);
+        break;
+    case GPIO_ITMode_FallEdge:
+        GPIOA_ITModeCfg(gpio_pin, GPIO_ITMode_FallEdge);
+        break;
+    case GPIO_ITMode_RiseEdge:
+        GPIOA_ITModeCfg(gpio_pin, GPIO_ITMode_RiseEdge);
+        break;
+    default:
+        rt_hw_interrupt_enable(level);
+        return RT_ENOSYS;
+    }
+  	}else{
+		switch (mode)
+    {
+    case GPIO_ITMode_LowLevel:
+        GPIOB_ITModeCfg(gpio_pin, GPIO_ITMode_LowLevel);
+        break;
+    case GPIO_ITMode_HighLevel:
+        GPIOB_ITModeCfg(gpio_pin, GPIO_ITMode_HighLevel);
+        break;
+    case GPIO_ITMode_FallEdge:
+        GPIOB_ITModeCfg(gpio_pin, GPIO_ITMode_FallEdge);
+        break;
+    case GPIO_ITMode_RiseEdge:
+        GPIOB_ITModeCfg(gpio_pin, GPIO_ITMode_RiseEdge);
+        break;
+    default:
+        rt_hw_interrupt_enable(level);
+        return RT_ENOSYS;
+    }
+		}
+
+    rt_hw_interrupt_enable(level);
+    return RT_EOK;
+}
+
+static rt_err_t ch_pin_detach_irq(struct rt_device *device, rt_int32_t pin)
+{
+    return RT_EOK;
+}
+
+struct rt_pin_ops _ch_pin_ops =
+{
+    ch_pin_mode,
+    ch_pin_write,
+    ch_pin_read,
+    ch_pin_attach_irq,
+    ch_pin_detach_irq,
+};
+
+int ch_hw_pin_init(void)
+{
+    int ret = rt_device_pin_register("pin", &_ch_pin_ops, RT_NULL);
+    return ret;
+}
+INIT_BOARD_EXPORT(ch_hw_pin_init);
+
+
+#endif // BSP_USING_PIN 
+

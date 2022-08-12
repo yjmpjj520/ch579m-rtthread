@@ -1,0 +1,12 @@
+.\build\keil\obj\usbhost.o: rt-thread\components\drivers\usb\usbhost\core\usbhost.c
+.\build\keil\obj\usbhost.o: rt-thread\include\rtthread.h
+.\build\keil\obj\usbhost.o: .\rtconfig.h
+.\build\keil\obj\usbhost.o: rt-thread\include\rtdebug.h
+.\build\keil\obj\usbhost.o: rt-thread\include\rtdef.h
+.\build\keil\obj\usbhost.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdarg.h
+.\build\keil\obj\usbhost.o: rt-thread\include\rtservice.h
+.\build\keil\obj\usbhost.o: rt-thread\include\rtm.h
+.\build\keil\obj\usbhost.o: rt-thread\include\rtthread.h
+.\build\keil\obj\usbhost.o: rt-thread\components\finsh\finsh.h
+.\build\keil\obj\usbhost.o: rt-thread\components\drivers\include\drivers/usb_host.h
+.\build\keil\obj\usbhost.o: rt-thread\components\drivers\include\drivers/usb_common.h

@@ -1,0 +1,17 @@
+.\build\keil\obj\net_netdb.o: rt-thread\components\net\sal_socket\socket\net_netdb.c
+.\build\keil\obj\net_netdb.o: E:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+.\build\keil\obj\net_netdb.o: rt-thread\include\rtthread.h
+.\build\keil\obj\net_netdb.o: .\rtconfig.h
+.\build\keil\obj\net_netdb.o: rt-thread\include\rtdebug.h
+.\build\keil\obj\net_netdb.o: rt-thread\include\rtdef.h
+.\build\keil\obj\net_netdb.o: E:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h
+.\build\keil\obj\net_netdb.o: rt-thread\include\rtservice.h
+.\build\keil\obj\net_netdb.o: rt-thread\include\rtm.h
+.\build\keil\obj\net_netdb.o: rt-thread\include\rtthread.h
+.\build\keil\obj\net_netdb.o: rt-thread\components\finsh\finsh.h
+.\build\keil\obj\net_netdb.o: rt-thread\components\net\sal_socket\include\socket\netdb.h
+.\build\keil\obj\net_netdb.o: rt-thread\components\net\sal_socket\include\sal_netdb.h
+.\build\keil\obj\net_netdb.o: rt-thread\components\net\sal_socket\include\sal_socket.h
+.\build\keil\obj\net_netdb.o: rt-thread\components\net\netdev\include\arpa/inet.h
+.\build\keil\obj\net_netdb.o: rt-thread\components\net\netdev\include\netdev_ipaddr.h
+.\build\keil\obj\net_netdb.o: E:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h

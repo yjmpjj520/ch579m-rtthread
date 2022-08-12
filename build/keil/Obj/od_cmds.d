@@ -1,0 +1,15 @@
+.\build\keil\obj\od_cmds.o: od_cmds\od_cmds.c
+.\build\keil\obj\od_cmds.o: rt-thread\include\rthw.h
+.\build\keil\obj\od_cmds.o: rt-thread\include\rtthread.h
+.\build\keil\obj\od_cmds.o: .\rtconfig.h
+.\build\keil\obj\od_cmds.o: rt-thread\include\rtdebug.h
+.\build\keil\obj\od_cmds.o: rt-thread\include\rtdef.h
+.\build\keil\obj\od_cmds.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdarg.h
+.\build\keil\obj\od_cmds.o: rt-thread\include\rtservice.h
+.\build\keil\obj\od_cmds.o: rt-thread\include\rtm.h
+.\build\keil\obj\od_cmds.o: rt-thread\include\rtthread.h
+.\build\keil\obj\od_cmds.o: rt-thread\components\finsh\finsh.h
+.\build\keil\obj\od_cmds.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdio.h
+.\build\keil\obj\od_cmds.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\build\keil\obj\od_cmds.o: D:\keil5\ARM\ARMCC\Bin\..\include\string.h
+.\build\keil\obj\od_cmds.o: D:\keil5\ARM\ARMCC\Bin\..\include\ctype.h

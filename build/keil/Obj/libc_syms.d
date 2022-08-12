@@ -1,0 +1,15 @@
+.\build\keil\obj\libc_syms.o: rt-thread\components\libc\compilers\armlibc\libc_syms.c
+.\build\keil\obj\libc_syms.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdio.h
+.\build\keil\obj\libc_syms.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\build\keil\obj\libc_syms.o: D:\keil5\ARM\ARMCC\Bin\..\include\string.h
+.\build\keil\obj\libc_syms.o: D:\keil5\ARM\ARMCC\Bin\..\include\ctype.h
+.\build\keil\obj\libc_syms.o: rt-thread\include\rtm.h
+.\build\keil\obj\libc_syms.o: rt-thread\include\rtdef.h
+.\build\keil\obj\libc_syms.o: .\rtconfig.h
+.\build\keil\obj\libc_syms.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdarg.h
+.\build\keil\obj\libc_syms.o: rt-thread\include\rtthread.h
+.\build\keil\obj\libc_syms.o: rt-thread\include\rtdebug.h
+.\build\keil\obj\libc_syms.o: rt-thread\include\rtservice.h
+.\build\keil\obj\libc_syms.o: rt-thread\include\rtm.h
+.\build\keil\obj\libc_syms.o: rt-thread\components\finsh\finsh.h
+.\build\keil\obj\libc_syms.o: rt-thread\include\rtthread.h

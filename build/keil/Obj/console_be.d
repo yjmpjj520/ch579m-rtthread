@@ -1,0 +1,16 @@
+.\build\keil\obj\console_be.o: rt-thread\components\utilities\ulog\backend\console_be.c
+.\build\keil\obj\console_be.o: rt-thread\include\rthw.h
+.\build\keil\obj\console_be.o: rt-thread\include\rtthread.h
+.\build\keil\obj\console_be.o: .\rtconfig.h
+.\build\keil\obj\console_be.o: rt-thread\include\rtdebug.h
+.\build\keil\obj\console_be.o: rt-thread\include\rtdef.h
+.\build\keil\obj\console_be.o: E:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h
+.\build\keil\obj\console_be.o: rt-thread\include\rtservice.h
+.\build\keil\obj\console_be.o: rt-thread\include\rtm.h
+.\build\keil\obj\console_be.o: rt-thread\include\rtthread.h
+.\build\keil\obj\console_be.o: rt-thread\components\finsh\finsh.h
+.\build\keil\obj\console_be.o: rt-thread\components\utilities\ulog\ulog.h
+.\build\keil\obj\console_be.o: rt-thread\components\utilities\ulog\ulog_def.h
+.\build\keil\obj\console_be.o: E:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+.\build\keil\obj\console_be.o: E:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\build\keil\obj\console_be.o: E:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h

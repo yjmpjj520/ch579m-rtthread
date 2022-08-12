@@ -1,0 +1,16 @@
+.\build\keil\obj\signal.o: rt-thread\src\signal.c
+.\build\keil\obj\signal.o: E:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\build\keil\obj\signal.o: E:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\build\keil\obj\signal.o: rt-thread\include\rthw.h
+.\build\keil\obj\signal.o: rt-thread\include\rtthread.h
+.\build\keil\obj\signal.o: .\rtconfig.h
+.\build\keil\obj\signal.o: rt-thread\include\rtdebug.h
+.\build\keil\obj\signal.o: rt-thread\include\rtdef.h
+.\build\keil\obj\signal.o: E:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h
+.\build\keil\obj\signal.o: rt-thread\components\libc\compilers\common\sys/signal.h
+.\build\keil\obj\signal.o: E:\Keil_v5\ARM\ARMCC\Bin\..\include\signal.h
+.\build\keil\obj\signal.o: rt-thread\include\rtservice.h
+.\build\keil\obj\signal.o: rt-thread\include\rtm.h
+.\build\keil\obj\signal.o: rt-thread\include\rtthread.h
+.\build\keil\obj\signal.o: rt-thread\components\finsh\finsh.h
+.\build\keil\obj\signal.o: rt-thread\include\rtdbg.h
